@@ -1,0 +1,178 @@
+<div class="space">
+    <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px" fxLayoutGap.xs="5px">
+
+        <div class="item item-1 profielmenu" fxFlex="100%">
+
+            <h3>Profiel</h3>
+
+            <!--Weergeven van voornaam-->
+            <h4>Voornaam</h4>
+            <ng-container *ngIf="!wijzigen[0];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <p>{{gebruiker.voornaam}}</p>
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <p class="wijzigen" (click)="wijzigen[0] = !wijzigen[0]">Wijzigen</p>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Wijzigen van voornaam-->
+            <ng-container *ngIf="wijzigen[0];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <input placeholder="Voornaam" [(ngModel)]="gebruiker.voornaam">
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <button class="button" mat-button (click)="gebruikerOpslaan(gebruiker, 0);">Opslaan</button>
+                        <button class="button" mat-button (click)="annuleren(0);">Annuleren</button>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Weergeven van achternaam-->
+            <h4>Achternaam</h4>
+            <ng-container *ngIf="!wijzigen[1];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <p>{{gebruiker.tussenvoegsel}} {{gebruiker.achternaam}}</p>
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <p class="wijzigen" (click)="wijzigen[1] = !wijzigen[1]">Wijzigen</p>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Wijzigen van achternaam-->
+            <ng-container *ngIf="wijzigen[1];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <input id="wzgTus" placeholder="Tussenvoegsel" [(ngModel)]="gebruiker.tussenvoegsel">
+                        <input id="wzgAch" placeholder="Achternaam" [(ngModel)]="gebruiker.achternaam">
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <button class="button" mat-button (click)="gebruikerOpslaan(gebruiker, 1);">Opslaan</button>
+                        <button class="button" mat-button (click)="annuleren(1);">Annuleren</button>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Weergeven van e-mailadres-->
+            <h4>E-mailadres</h4>
+            <ng-container *ngIf="!wijzigen[2];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <p>{{gebruiker.emailadres}}</p>
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <p class="wijzigen" (click)="wijzigen[2] = !wijzigen[2]">Wijzigen</p>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Wijzigen van e-mailadres-->
+            <ng-container *ngIf="wijzigen[2];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <input placeholder="E-mailadres" [(ngModel)]="gebruiker.emailadres" type="email">
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <button class="button" mat-button (click)="gebruikerOpslaan(gebruiker, 2);">Opslaan</button>
+                        <button class="button" mat-button (click)="annuleren(2);">Annuleren</button>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Weergeven van gebruikersnaam-->
+            <h4>Gebruikersnaam</h4>
+            <ng-container *ngIf="!wijzigen[3];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <p>{{gebruiker.gebruikersnaam}}</p>
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <p class="wijzigen" (click)="wijzigen[3] = !wijzigen[3]">Wijzigen</p>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Wijzigen van gebruikersnaam-->
+            <ng-container *ngIf="wijzigen[3];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <input placeholder="Gebruikersnaam" [(ngModel)]="gebruiker.gebruikersnaam">
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <button class="button" mat-button (click)="gebruikerOpslaan(gebruiker, 3);">Opslaan</button>
+                        <button class="button" mat-button (click)="annuleren(3);">Annuleren</button>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Weergeven van 'gecensureerd wachtwoord'-->
+            <h4>Wachtwoord</h4>
+            <ng-container *ngIf="!wijzigen[4];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <p>*************</p>
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <p class="wijzigen" (click)="wijzigen[4] = !wijzigen[4]">Wijzigen</p>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--Wijzigen van wachtwoord-->
+            <ng-container *ngIf="wijzigen[4];">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px"
+                    fxLayoutGap.xs="5px">
+                    <div class="item item-1" fxFlex="30%">
+                        <form [formGroup]="wijzigForm">
+
+                            <input placeholder="Huidig wachtwoord" name="huidigPassword"
+                                formControlName="huidigPassword" type="password" required>
+
+                            <input placeholder="Nieuw wachtwoord" name="nieuwPassword" formControlName="nieuwPassword"
+                                type="password" required>
+
+                        </form>
+                        
+                        <div id="infotext" *ngIf="infoZichtbaar">
+                            <p>
+                                Uw nieuwe wachtwoord mag het oude wachtwoord niet bevatten.
+                                De minimale lengte moet 8 karakters zijn. Tevens dient u
+                                minimaal één hoofdletter, één kleine letter, één cijfer
+                                en één speciaal karakter te gebruiken.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="item item-2" fxFlex="30%">
+                        <button class="button" mat-button (click)=" wijzigWachtwoord(4);">Opslaan</button>
+                        <button class="button" mat-button (click)="annuleren(4);">Annuleren</button>
+                    </div>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</div>

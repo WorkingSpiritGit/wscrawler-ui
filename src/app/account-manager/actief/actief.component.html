@@ -1,0 +1,85 @@
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px" fxLayoutGap.xs="5px">
+    <div class="item item-1" fxFlex="21.1%">
+        <div class="filtermenu">
+
+            <p id="filteren">Vacatures filteren</p>
+
+            <mat-selection-list [(ngModel)]="filters">
+                <mat-list-option class="custom-ripple" *ngFor="let filter of filterOpties" [value]="filter">
+                    {{filter}}
+                </mat-list-option>
+            </mat-selection-list>
+
+            <div>
+                <button id="filterknop" class="button-color" (click)="filterVacatures();" mat-button>Filteren</button>
+                <button id="reset" class="button-color" (click)="resetFilter();" mat-button>Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="item item-2" fxFlex="78.9%">
+        <table mat-table [dataSource]="vacatureLijst">
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let vacature">
+                    <span class="status-icon" *ngIf="vacature.status == 'AFWACHTING'">
+                        <mat-icon>priority_high</mat-icon>
+                    </span>
+                    <span class="status-icon" *ngIf="vacature.status == 'ACTIEF'">
+                        <mat-icon>cached</mat-icon>
+                    </span>
+                    <span class="status-icon" *ngIf="vacature.status == 'AFGEHANDELD'">
+                        <mat-icon>done</mat-icon>
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="titel">
+                <th mat-header-cell *matHeaderCellDef> Titel <i class="material-icons"
+                        (click)="sorteer('titel')">swap_vert
+                    </i></th>
+                <td mat-cell *matCellDef="let vacature" (click)="naarVacature(vacature.id);">
+                    <span *ngIf="!vacature.gezien"><b>{{vacature.titel}}</b></span>
+                    <span *ngIf="vacature.gezien">{{vacature.titel}}</span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="manager">
+                <th mat-header-cell *matHeaderCellDef> Manager </th>
+                <td mat-cell *matCellDef="let vacature">
+                    <span *ngIf="vacature.manager == null">nb</span>
+                    <span *ngIf="vacature.manager != null">{{vacature.manager}}</span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="datum">
+                <th mat-header-cell *matHeaderCellDef> Datum <i class="material-icons"
+                        (click)="sorteer('datum')">swap_vert
+                    </i></th>
+                <td mat-cell *matCellDef="let vacature"> {{vacature.datum | date: 'dd-MM-yyyy'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="link">
+                <th mat-header-cell *matHeaderCellDef> Link </th>
+                <td mat-cell *matCellDef="let vacature"><a id="link{{vacature.id}}" (click)="openLink(vacature.url);">Ga
+                        naar
+                        vacature</a></td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let vacature"><button class="delete" (click)="openDialog(vacature);"
+                        mat-icon-button>
+                        <mat-icon>delete</mat-icon>
+                    </button></td>
+            </ng-container>
+
+            <tr class="tableheader" mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr class="tablerow" mat-row *matRowDef="let vacature; columns: columnsToDisplay"></tr>
+        </table>
+        <mat-paginator (page)="haalVacaturesOpPagina($event)" class="mat-table" [pageSize]="25" [length]="length"
+            showFirstLastButtons="true">
+        </mat-paginator>
+    </div>
+</div>

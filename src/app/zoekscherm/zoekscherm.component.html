@@ -1,0 +1,35 @@
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px" fxLayoutGap.xs="5px">
+    <div class="item item-2" fxFlex="60%">
+   
+    <div class="body">
+        <div class="zoeken">
+            <ng-container *ngIf="status[0]">
+                <h4>Geef een website en zoekterm op</h4>
+                <form [formGroup]="zoekform">
+                        <select formControlName="website" name="website" class="form-control" id="websiteKeuze">
+                          <option id="website" *ngFor="let Website of websites"
+                              [ngValue]="Website">
+                              {{Website.naam}} 
+                          </option>
+                        </select>
+                    <div>
+                        <button mat-button (click)="zoeken();" type='button'>Zoeken</button>
+                    </div>
+                </form>
+            </ng-container>
+
+            <ng-container *ngIf="status[1]">
+                <h4>Bezig met zoeken...</h4>
+                <p>Het zoekproces kan enkele minuten duren.</p>
+                <mat-spinner class="mat-spinner"></mat-spinner>
+            </ng-container>
+
+            <ng-container *ngIf="status[2]">
+                <h4>Resultaten beschikbaar</h4>
+                <p>De zoekopdracht is uitgevoerd en de resultaten zijn opgehaald en verwerkt.</p>
+                <button mat-button (click)="zieResultaten();">Resultaten</button>
+            </ng-container>
+        </div>
+    </div>
+    </div>
+</div>

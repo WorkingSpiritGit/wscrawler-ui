@@ -1,0 +1,31 @@
+mat-toolbar {
+    background-color: rgb(126, 2, 197);
+    color: #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 500;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+mat-icon {
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.filler {
+    flex: 1 1 auto;
+}
+
+.link {
+    padding-left: 5%;
+}
+
+.button {
+    min-width: 75px;
+    background-color: #FFFFFF;
+    color: rgb(126, 2, 197);
+    font-size: 13.3333px;
+    cursor: pointer;
+    text-decoration: none;
+}

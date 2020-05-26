@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Website verwijderen</h2>
+
+<mat-dialog-content>
+    <p>
+        Weet u zeker dat u '{{website.naam}}' wilt verwijderen?
+    </p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="button-color" mat-button (click)="sluit();">Sluiten</button>
+    <button class="verwijderknop" mat-button (click)="verwijderen();">Verwijderen</button>
+</mat-dialog-actions>

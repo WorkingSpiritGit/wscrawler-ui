@@ -1,0 +1,76 @@
+h3 {
+    color: rgb(126, 2, 197);
+    margin-block-start: 0px;
+    margin-block-end: 2em;
+}
+
+.profielmenu {
+
+    h4 {
+        color: rgb(126, 2, 197);
+        margin-block-end: 0px;
+        font-size: 16px;
+    }
+
+    p {
+        margin-block-start: 8px;
+    }
+
+    .wijzigen {
+        color: rgb(126, 2, 197);
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .wijzigen:hover {
+        text-decoration: underline;
+    }
+
+    button {
+        margin-top: 10px;
+        margin-right: 10px;
+        background-color: rgb(126, 2, 197);
+        color: #FFFFFF;
+        min-width: 150px;
+    }
+
+    input {
+        width: 80%;
+        border: 1px solid rgb(126, 2, 197);
+        color: rgb(126, 2, 197);
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    
+    input::placeholder {
+        font-size: 14px;
+        color: rgba(126, 2, 197, $alpha: 0.7);
+    }
+    
+    input:focus {
+        outline: none;
+    }
+
+    #wzgTus {
+        width: 23%;
+        margin-right: 10px;
+    }
+
+    #wzgAch {
+        width: 50%;
+    }
+
+    #infotext {
+        font-size: 12px;
+        width: 80%;
+        min-width: 250px;
+        word-break: normal;
+    }
+    
+    #infotext p {
+        margin-block-start: 0;
+    }
+}

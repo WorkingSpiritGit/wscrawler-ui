@@ -1,0 +1,8 @@
+.verwijderknop {
+    background: rgb(240, 20, 64);
+    color: #FFFFFF;
+}
+
+.verwijderknop:hover {
+    background-color: rgba($color: rgb(240, 20, 64), $alpha: 0.9);
+}

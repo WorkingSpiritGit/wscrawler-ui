@@ -1,0 +1,67 @@
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px" fxLayoutGap.xs="5px">
+    <div class="item item-1" fxFlex="60%">
+        <h3>Gebruikers</h3>
+
+        <div class="zoektermtabel mat-elevation-z8">
+            <table mat-table [dataSource]="zoektermTabel">
+
+                <ng-container matColumnDef="naam">
+                    <th mat-header-cell *matHeaderCellDef> Zoekterm </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.naam}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="bewerk">
+                    <th mat-header-cell *matHeaderCellDef> Bewerk </th>
+                    <td class="align-center" mat-cell *matCellDef="let element">
+                        <button class="button-color" id="wijzig{{element.id}}" (click)="laadWijzigmenu(element.id);"
+                            title="Website wijzigen" mat-icon-button>
+                            <mat-icon>create</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="verwijder">
+                    <th mat-header-cell *matHeaderCellDef> Verwijder </th>
+                    <td class="align-center" mat-cell *matCellDef="let element">
+                        <button class="button-color" id="verwijder{{element.id}}" (click)="openDialog(element);"
+                            title="Website verwijderen" mat-icon-button>
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr class="tableheader" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="item item-2 zoektermmenu" fxFlex="40%">
+        <ng-container *ngIf="!wijzigen">
+            <h3>Nieuwe zoekterm toevoegen</h3>
+
+            <div class="inputdiv">
+                <input id="zoektermnaam" placeholder="Zoekterm" [(ngModel)]="zoekterm.naam">
+            </div>
+
+            <div>
+                <button mat-button id="opslaan" (click)="zoektermOpslaan(zoekterm);">Opslaan</button>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="wijzigen">
+            <h3>Zoekterm wijzigen</h3>
+
+            <div class="inputdiv">
+                <input id="wijzigzoektermnaam" placeholder="Zoekterm" [(ngModel)]="zoekterm.naam">
+            </div>
+
+            <div class="buttons">
+                <button mat-button id="wijzig" (click)="zoektermWijzigen(zoekterm);">Wijzigen</button>
+                <button mat-button id="annuleer" (click)="annuleerWijziging();">Annuleren</button>
+            </div>
+        </ng-container>
+    </div>
+</div>

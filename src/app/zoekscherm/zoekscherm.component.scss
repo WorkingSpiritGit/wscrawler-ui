@@ -1,0 +1,59 @@
+body {
+    min-width: 400px !important;
+    width: auto !important;
+    width: 100%;
+}
+
+.body {
+    display: flex;
+    justify-content: center; /* For horizontal alignment */
+    align-items: center; /* For vertical alignment */
+}
+
+.zoeken {
+    border: 1.5px solid rgb(126, 2, 197);
+    border-radius: 10px;
+    width: 500px;
+    height: 195px;
+    padding: 20px;
+    margin-left: 60%;
+    margin-top: 10%;
+
+    h4 {
+        margin-block-start: 0;
+        margin-block-end: 20px; 
+    }
+
+    input, select {
+        width: 95%;
+        color: rgb(126, 2, 197);
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        border: none;
+    }
+
+    input::placeholder {
+        color: rgba(126, 2, 197, $alpha: 0.7);
+    }
+
+    input:focus, select:focus {
+        outline: none;
+    }
+
+    button {
+        margin-top: 10px;
+        background-color: #FFFFFF;
+        color: rgb(126, 2, 197);
+        width: 150px;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    mat-spinner.mat-spinner {
+        margin-left: 40%;
+    }
+}

@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Zoekterm verwijderen</h2>
+
+<mat-dialog-content>
+    <p>
+        Weet u zeker dat u '{{zoekterm.naam}}' wilt verwijderen?
+    </p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="button-color" mat-button (click)="sluit();">Sluiten</button>
+    <button class="verwijderknop" mat-button (click)="verwijderen();">Verwijderen</button>
+</mat-dialog-actions>

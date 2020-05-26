@@ -1,0 +1,20 @@
+<div class="bg bg-color">
+
+    <div class="logo">
+        <mat-icon>language</mat-icon>
+        <h1>ACCOUNTMANAGER APPLICATIE</h1>
+    </div>
+    <div class="body">
+        <div class="zoeken">
+            <h4>Login met gebruikersnaam en wachtwoord</h4>
+            <form [formGroup]="loginform">
+                <input placeholder="Gebruikersnaam..." formControlName="gebruikersnaam" name="gebruikersnaam" required>
+                <input placeholder="Wachtwoord..." formControlName="wachtwoord" name="wachtwoord" type="password"
+                    required>
+                <div>
+                    <button mat-button (click)="login();">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="space">
+    <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px" fxLayoutGap.xs="5px">
+
+        <div class="item item-1" fxFlex="100%">
+
+            <h3>{{vacature.titel}} | {{vacature.datum | date:'dd-MM-yyyy'}}</h3>
+
+        </div>
+
+    </div>
+
+    <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px" fxLayoutGap.xs="5px">
+
+        <div class="item item-1" fxFlex="30%">
+            <button class="button-color" (click)="naarWebsite();" mat-button>Naar website</button>
+        </div>
+
+        <div class="item item-2" fxFlex="70%">
+            <h4>In behandeling door: {{vacature.manager}}</h4>
+        </div>
+
+    </div>
+
+    <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="20px" fxLayoutGap.xs="5px">
+
+        <div class="item item-1" fxFlex="30%">
+
+            <p id="status">Selecteer status</p>
+
+            <div class="statusmenu">
+
+                <mat-radio-group class="status-radio-group" [(ngModel)]="vacature.status"
+                    (change)="wijzigStatus($event);">
+
+                    <mat-radio-button class="status-radio-button custom-ripple" labelPosition="after"
+                        *ngFor="let status of statusOpties" [value]="status.waarde">
+                        {{status.naam}}
+                        <span class="status-icon" *ngIf="status.waarde == 'AFWACHTING'">
+                            <mat-icon>priority_high</mat-icon>
+                        </span>
+                        <span class="status-icon" *ngIf="status.waarde == 'ACTIEF'">
+                            <mat-icon>cached</mat-icon>
+                        </span>
+                        <span class="status-icon" *ngIf="status.waarde == 'AFGEHANDELD'">
+                            <mat-icon>done</mat-icon>
+                        </span>
+                    </mat-radio-button>
+
+                </mat-radio-group>
+
+            </div>
+
+            <div class="archiveren">
+                <mat-slide-toggle class="custom-ripple" [(ngModel)]="vacature.gearchiveerd"
+                    (change)="wijzigArchief($event, vacature);">Archiveren</mat-slide-toggle>
+            </div>
+
+        </div>
+
+        <div class="item item-2" fxFlex="70%">
+
+            <p id="notities">Notities</p>
+
+            <textarea placeholder="Notities..." [(ngModel)]="vacature.notities" maxlength="5000"></textarea>
+
+            <button id="notitiebutton" class="button-color" (click)="notitiesOpslaan(vacature);" mat-button>Notities
+                opslaan</button>
+
+        </div>
+
+    </div>
+
+</div>

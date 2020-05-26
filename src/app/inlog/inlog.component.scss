@@ -1,0 +1,85 @@
+body {
+    min-width: 400px !important;
+    width: auto !important;
+    width: 100%;
+}
+
+.bg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.logo {
+    margin-top: 50px;
+    margin-bottom: 75px;
+    color: #FFFFFF;
+    text-align: center;
+    
+    mat-icon {
+        font-size: 75px;
+        padding-right: 45px;
+        vertical-align: middle;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        vertical-align: middle;
+        margin-block-start: 50px;
+    }
+}
+
+.body {
+    display: flex;
+    justify-content: center; /* For horizontal alignment */
+    align-items: center; /* For vertical alignment */
+}
+
+.zoeken {
+    color: #FFFFFF;
+    border: 1.5px solid #FFFFFF;
+    border-radius: 10px;
+    width: 500px;
+    height: 195px;
+    padding: 20px;
+
+    h4 {
+        margin-block-start: 0;
+        margin-block-end: 20px; 
+    }
+
+    input {
+        width: 95%;
+        color: rgb(126, 2, 197);
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        border: none;
+    }
+
+    input::placeholder {
+        color: rgba(126, 2, 197, $alpha: 0.7);
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    button {
+        margin-top: 10px;
+        background-color: #FFFFFF;
+        color: rgb(126, 2, 197);
+        min-width: 150px;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    mat-spinner.mat-spinner {
+        margin-left: 40%;
+    }
+}
